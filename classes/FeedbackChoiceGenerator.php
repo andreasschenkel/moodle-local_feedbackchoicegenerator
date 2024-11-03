@@ -107,7 +107,7 @@ class FeedbackChoiceGenerator {
         $filename = '';
         for ($i = 1; $i <= (int)$size; $i++) {
             if (isset($_POST["option$i"])) {
-                $optioncounter = trim($_POST["option$i"]);
+                $optioncounter = trim(required_param("option$i", PARAM_TEXT));
             } else {
                 $optioncounter = '';
             }
