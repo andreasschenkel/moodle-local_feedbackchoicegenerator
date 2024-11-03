@@ -25,40 +25,42 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = '1./2. ranked-choise-generator for feedback';
+$string['backtocourselabel'] = 'Back to the course';
+$string['buttonlabel'] = 'generate XML';
 
-$string['feedbackchoicegenerator:view'] = 'see 1./2-ranked-choice-generator for feedback';
-
-$string['isactive'] = 'Activate generator';
 $string['configisactive'] = 'When activated, the generator can be started in the navigation drawer of the course.';
-
-$string['isallowedonfrontpage'] = 'Allow generator on frontpage with coursid=1';
 $string['configisallowedonfrontpage'] = 'When activated, the generator can be used on the frontpage with courseid=1. URL is: yourmoodleurl/local/feedbackchoicegenerator/index.php?id=1';
 
-$string['maxoptionslength'] = 'maximum text length of each option';
-$string['configmaxoptionslength'] = 'Up to this length a user can enter text as an option.';
-
-$string['maxlength'] = 'maximum count of options';
 $string['configmaxlength'] = 'Up to how many options can be used.';
-
-$string['firstchoicelabel'] = '1. choice';
-$string['secondchoicelabel'] = '2. choice';
-
-$string['header3'] = '1. choice and 2. choice';
-$string['summary'] = 'Generating import-file for activity feedback';
-
+$string['configmaxoptionslength'] = 'Up to this length a user can enter text as an option.';
 $string['courseidlabel'] = 'course id';
-$string['backtocourselabel'] = 'Back to the course';
-$string['sizelabel'] = 'How many options';
-
-$string['optionslengthinfo'] = 'Maximum lengthof input for each option:';
 
 $string['description'] = 'Download the generated code "Save link as ..." or put the generated XML-Code in a textfile with the extension .xml.';
-
-$string['buttonlabel'] = 'generate XML';
-$string['updatebuttonlabel'] = 'update';
 $string['downloadbuttonlabel'] = 'download with right click and "save link as..."';
+
+$string['feedbackchoicegenerator:view'] = 'see 1./2-ranked-choice-generator for feedback';
+$string['firstchoicelabel'] = '1. choice';
+
+$string['header3'] = '1. choice and 2. choice';
+
+$string['isactive'] = 'Activate generator';
+
+$string['isallowedonfrontpage'] = 'Allow generator on frontpage with coursid=1';
+
+$string['maxlength'] = 'maximum count of options';
+$string['maxoptionslength'] = 'maximum text length of each option';
+
+$string['optionlabel'] = 'Option';
+$string['optionslengthinfo'] = 'Maximum lengthof input for each option:';
+
+$string['pluginname'] = '1./2. ranked-choise-generator for feedback';
+
 $string['resetbuttonlabel'] = 'reset';
 
+$string['secondchoicelabel'] = '2. choice';
+
 $string['selectlabel'] = 'select';
-$string['optionlabel'] = 'Option';
+$string['sizelabel'] = 'How many options';
+$string['summary'] = 'Generating import-file for activity feedback';
+
+$string['updatebuttonlabel'] = 'update';
