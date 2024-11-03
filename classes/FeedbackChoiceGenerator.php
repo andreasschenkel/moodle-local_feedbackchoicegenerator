@@ -156,7 +156,6 @@ class FeedbackChoiceGenerator {
                 'resetbuttonlabel' => get_string('resetbuttonlabel', 'local_feedbackchoicegenerator'),
                 'dataurl' => $dataurl,
             ];
-        echo json_encode($datatorender);
 
         $html = "<?php session_start(); ?>" . $this->get_page()->get_output()->render_from_template(
                 'local_feedbackchoicegenerator/mainpage',
