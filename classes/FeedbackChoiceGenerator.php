@@ -158,10 +158,11 @@ class FeedbackChoiceGenerator {
             ];
         echo json_encode($datatorender);
 
-        echo $this->get_page()->get_output()->render_from_template(
-            'local_feedbackchoicegenerator/mainpage',
-            $datatorender
-        );
+        $html = "<?php session_start(); ?>" . $this->get_page()->get_output()->render_from_template(
+                'local_feedbackchoicegenerator/mainpage',
+                $datatorender
+            );
+        echo $html;
 
         echo $this->get_page()->get_output()->footer();
     }
