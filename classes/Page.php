@@ -47,9 +47,11 @@ class Page {
      * Constructor
      *
      * @param moodle_page $page
-     * @param             $course
+     * @param course $course
      * @param int $courseid
      * @param bootstrap_renderer $output
+     * @throws \coding_exception
+     * @throws \core\exception\moodle_exception
      */
     public function __construct($page, $course, $courseid, $output) {
         $this->page = $page;
@@ -111,13 +113,4 @@ class Page {
         return $this->page;
     }
 
-    /**
-     * ToDo: Check if function is needed.
-     *
-     * @param $instance
-     * @return mixed
-     */
-    public function get_icon_url_löschen($instance) {
-        return $this->get_page()->theme->image_url('icon', $instance->modname)->out();
-    }
 }

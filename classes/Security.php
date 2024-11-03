@@ -48,7 +48,7 @@ class Security {
     /**
      * Checks if user is allowed to use the generator.
      *
-     * @param $courseid
+     * @param int $courseid
      * @return void
      * @throws \dml_exception
      * @throws \required_capability_exception
@@ -56,7 +56,7 @@ class Security {
      * @throws moodle_exception
      * @throws require_login_exception
      */
-    public function user_is_allowed_to_view_the_course_and_has_capability_to_use_generator($courseid) {
+    public function user_is_allowed_to_view_the_course_and_has_capability_to_use_generator($courseid): void {
         $params = ['id' => $courseid];
 
         // Check this code if it works correct????

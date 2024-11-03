@@ -33,11 +33,11 @@ class Helper {
     /**
      * Generates the options seperated by |
      *
-     * @param $options
-     * @param $selectedoption
+     * @param array $options
+     * @param string $selectedoption
      * @return string with all options without the $selectedoption
      */
-    public static function generate_options_list($options, $selectedoption): string {
+    public static function generate_options_list(array $options, string $selectedoption): string {
         $htmloutput = '';
         $counter = 0;
         foreach ($options as $option) {
@@ -146,12 +146,14 @@ class Helper {
 
     /**
      * generates the xml-code for the label
-     * @param $xmlWriterPlus
-     * @param int $itemnumber The number of the actual xml-component to be generated
-     * @param int $firstchoicereferencenumber Number for to reference to in the second second choice
-     * @param string $option DEPENDVALUE
+     *
+     * @param int $itemnumber
+     * @param int $firstchoicereferencenumber
+     * @param string $option
+     * @return string
+     * @throws \coding_exception
      */
-    public static function generate_label($itemnumber, $firstchoicereferencenumber, $option): string {
+    public static function generate_label(int $itemnumber, int $firstchoicereferencenumber, string $option): string {
         $output = "";
         $output = $output . html_writer::start_tag('ITEM', ['TYPE' => 'label', 'REQUIRED' => '0']) . "\n";
         $output = $output . html_writer::tag('ITEMID', "<![CDATA[$itemnumber]]>") . "\n";

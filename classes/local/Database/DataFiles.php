@@ -99,7 +99,7 @@ class DataFiles {
     /**
      * Getter for course
      *
-     * @param $courseid
+     * @param int $courseid
      * @return false|mixed|\stdClass
      * @throws \dml_exception
      */
@@ -107,14 +107,4 @@ class DataFiles {
         return $this->get_database()->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
     }
 
-    /**
-     *  Getter for page
-     *
-     * @param $instance
-     * @return false|mixed|\stdClass
-     * @throws \dml_exception
-     */
-    public function get_page($instance) {
-        return $this->get_database()->get_record('page', ['id' => $instance->instance], '*');
-    }
 }
