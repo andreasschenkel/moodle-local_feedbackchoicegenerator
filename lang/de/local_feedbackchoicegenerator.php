@@ -25,16 +25,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = '1./2. Wahl Feedback-Generator'; 
+$string['pluginname'] = '1./2. Wahl Feedback-Generator';
 
-$string['feedbackchoicegenerator:view'] = '1./2. Wahl Feedback-Generator anzeigen'; 
+$string['feedbackchoicegenerator:view'] = '1./2. Wahl Feedback-Generator anzeigen';
 
 $string['isactive'] = 'Generator aktivieren';
-$string['configisactive'] = 'Wenn aktiviert kann der Generator bei vorhandenen Berechtigungen im der Kursnavigation aufgerufen werden.';
+
 
 $string['isallowedonfrontpage'] = 'Generator auf Startseite mit Kursid=1 erlauben';
-$string['configisallowedonfrontpage'] = 'Wenn aktiviert kann der Generator auf der Startseite aufgerufen werden. 
-    Link wird allerdings nicht angezeigt. URL ist: moodleurl/local/feedbackchoicegenerator/index.php?id=1';
+$string['configisallowedonfrontpage'] = 'Wenn aktiviert kann der Generator auf der Startseite aufgerufen werden. Link wird allerdings nicht angezeigt. URL ist: moodleurl/local/feedbackchoicegenerator/index.php?id=1';
 
 $string['maxoptionslength'] = 'Max. Länge der Optionen';
 $string['configmaxoptionslength'] = 'Bis zu dieser Länge kann der Text einer Option eingegeben werden.';
@@ -54,8 +53,7 @@ $string['sizelabel'] = 'Anzahl der Optionen';
 
 $string['optionslengthinfo'] = 'max. Zeichenanzahl je Option:';
 
-$string['description'] = 'Den hier erzeugten xml-Code mit Hilfe des Download-Links herunterladen (rechte Maustaste "Ziel speichern unter..." nutzen). 
-    Alternativ den xml-Code in einer Textdatei kopieren und mit der Endung .xml speichern.';
+$string['description'] = 'Den hier erzeugten xml-Code mit Hilfe des Download-Links herunterladen (rechte Maustaste "Ziel speichern unter..." nutzen). Alternativ den xml-Code in einer Textdatei kopieren und mit der Endung .xml speichern.';
 
 $string['buttonlabel'] = 'XML erzeugen';
 $string['updatebuttonlabel'] = 'aktualisieren';

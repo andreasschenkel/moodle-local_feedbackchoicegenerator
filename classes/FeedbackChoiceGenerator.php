@@ -23,11 +23,13 @@ use local_feedbackchoicegenerator\Helper;
 use local_feedbackchoicegenerator\Manager;
 
 /**
- * @package    local_feedbackchoicegenerator
  * Class FeedbackChoiceGenerator
+ *
+ * @package    local_feedbackchoicegenerator
+ * @copyright  2021 Andreas Schenkel
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class FeedbackChoiceGenerator
-{
+class FeedbackChoiceGenerator {
 
     /**
      * @var moodle_page
@@ -70,6 +72,8 @@ class FeedbackChoiceGenerator
     }
 
     /**
+     * Initializing.
+     *
      * @throws coding_exception
      * @throws dml_exception
      * @throws moodle_exception
@@ -103,19 +107,19 @@ class FeedbackChoiceGenerator
         $filename = '';
         for ($i = 1; $i <= (int)$size; $i++) {
             if (isset($_POST["option$i"])) {
-                 $optioncounter = trim($_POST["option$i"]);
+                $optioncounter = trim($_POST["option$i"]);
             } else {
                 $optioncounter = '';
             }
 
             // Cut optioncounter if it is to long.
-            $optioncounter = substr($optioncounter , 0, $maxoptionslength);
-            $options[] = array(
+            $optioncounter = substr($optioncounter, 0, $maxoptionslength);
+            $options[] = [
                 'optionnumber' => $i,
                 'optionlabel' => "$optionlabel $i",
                 'optionname' => "option$i",
-                'optionvalue' => $optioncounter
-            );
+                'optionvalue' => $optioncounter,
+            ];
             $optionsarray[$i] = "$optioncounter";
         }
 
@@ -130,7 +134,7 @@ class FeedbackChoiceGenerator
                 'wwwroot' => $wwwroot,
                 'courseid' => $this->courseid,
                 'backtocourselabel' => get_string('backtocourselabel', 'local_feedbackchoicegenerator'),
-                
+
                 'title' => $this->get_page()->get_title(),
                 'header3' => get_string('header3', 'local_feedbackchoicegenerator'),
                 'summary' => get_string('summary', 'local_feedbackchoicegenerator'),
@@ -151,7 +155,7 @@ class FeedbackChoiceGenerator
                 'downloadbuttonlabel' => get_string('downloadbuttonlabel', 'local_feedbackchoicegenerator'),
                 'updatebuttonlabel' => get_string('updatebuttonlabel', 'local_feedbackchoicegenerator'),
                 'resetbuttonlabel' => get_string('resetbuttonlabel', 'local_feedbackchoicegenerator'),
-                'dataurl' => $dataurl
+                'dataurl' => $dataurl,
             ]
         );
 
@@ -160,7 +164,7 @@ class FeedbackChoiceGenerator
 
     /**
      * generates the xml-content and returns the content as string
-     * @param array $optionsarray   Array contains all options
+     * @param array $optionsarray Array contains all options
      * @return string xml-code to add into textarea in htmlpage
      */
     public function textareagenerator($optionsarray): string {
@@ -183,12 +187,12 @@ class FeedbackChoiceGenerator
         // ToDo: $option has to be set -> use of pattern SOLID.
         $option = '';
         $textareacontent = $textareacontent . $helper->generate_selection_overview(
-            $level,
-            ++$itemnumber,
-            $itemnumberfirstchoice,
-            $helper->generate_options_list($optionsarray, $selectedoption),
-            $option
-        );
+                $level,
+                ++$itemnumber,
+                $itemnumberfirstchoice,
+                $helper->generate_options_list($optionsarray, $selectedoption),
+                $option
+            );
 
         // C. generate pagebreak to seperate first choice.
         $textareacontent = $textareacontent . $helper->generate_pagebreak(++$itemnumber);
@@ -201,12 +205,12 @@ class FeedbackChoiceGenerator
             // Second selectionoverview is level = 2.
             $level = 2;
             $textareacontent = $textareacontent . $helper->generate_selection_overview(
-                $level,
-                ++$itemnumber,
-                $itemnumberfirstchoice,
-                $helper->generate_options_list($optionsarray, $selectedoption),
-                $option
-            );
+                    $level,
+                    ++$itemnumber,
+                    $itemnumberfirstchoice,
+                    $helper->generate_options_list($optionsarray, $selectedoption),
+                    $option
+                );
 
             $textareacontent = $textareacontent . $helper->generate_pagebreak(++$itemnumber);
         }

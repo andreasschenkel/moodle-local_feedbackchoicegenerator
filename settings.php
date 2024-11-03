@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Settings
+ *
  * @package    local_feedbackchoicegenerator
  * @copyright   Andreas Schenkel
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -24,9 +26,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $settings = new admin_settingpage( 'local_feedbackchoicegenerator', 'Feedback  choice generator' );
 
-// Create 
 $ADMIN->add( 'localplugins', $settings );
-
 
 if ($ADMIN->fulltree) {
 
@@ -44,7 +44,7 @@ if ($ADMIN->fulltree) {
         0
     ));
 
-    $options = array(5 => '5', 10 => '10', 20 => '20', 30 => '30', 40 => '40', 50 => '50', 100 => '100', 200 => '200');
+    $options = [5 => '5', 10 => '10', 20 => '20', 30 => '30', 40 => '40', 50 => '50', 100 => '100', 200 => '200'];
 
     $settings->add(new admin_setting_configselect(
         'local_feedbackchoicegenerator_maxlength',
@@ -54,7 +54,7 @@ if ($ADMIN->fulltree) {
         $options
     ));
 
-    $options = array(5 => '5', 10 => '10', 20 => '20', 30 => '30', 40 => '40', 50 => '50');
+    $options = [5 => '5', 10 => '10', 20 => '20', 30 => '30', 40 => '40', 50 => '50'];
     $settings->add(new admin_setting_configselect(
         'local_feedbackchoicegenerator_maxoptionslength',
         get_string('maxoptionslength', 'local_feedbackchoicegenerator'),

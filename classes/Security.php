@@ -16,7 +16,7 @@
 
 namespace local_feedbackchoicegenerator;
 
-defined('MOODLE_INTERNAL') || die;
+
 use coding_exception;
 use context_course;
 use moodle_database;
@@ -25,11 +25,13 @@ use require_login_exception;
 use stdClass;
 
 /**
+ * Security
+ *
  * @package    local_feedbackchoicegenerator
- * Class Security
+ * @copyright  2021 Andreas Schenkel
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class Security
-{
+class Security {
     /**
      * @var moodle_database
      */
@@ -44,6 +46,8 @@ class Security
     }
 
     /**
+     * Checks if user is allowed to use the generator.
+     *
      * @throws coding_exception
      * @throws moodle_exception
      * @throws require_login_exception

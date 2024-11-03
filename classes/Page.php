@@ -16,20 +16,39 @@
 
 namespace local_feedbackchoicegenerator;
 
-defined('MOODLE_INTERNAL') || die;
 use moodle_url;
 
-class Page
-{
+/**
+ * Page
+ *
+ * @package    local_feedbackchoicegenerator
+ * @copyright  2021 Andreas Schenkel
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class Page {
+    /**
+     * @var moodle_page
+     */
     private $page;
+    /**
+     * @var bootstrap_renderer
+     */
     private $output;
+    /**
+     * @var \lang_string|string
+     */
     private $title;
+    /**
+     * @var course
+     */
     private $course;
 
     /**
-     * @param moodle_page   $page
-     * @param               $course
-     * @param int           $courseid
+     * Constructor
+     *
+     * @param moodle_page $page
+     * @param             $course
+     * @param int $courseid
      * @param bootstrap_renderer $output
      */
     public function __construct($page, $course, $courseid, $output) {
@@ -46,26 +65,58 @@ class Page
 
     }
 
+    /**
+     * Getter for rendered output
+     *
+     * @return bootstrap_renderer
+     */
     public function get_output() {
         return $this->output;
     }
 
+    /**
+     *  Getter for title
+     *
+     * @return \lang_string|string
+     */
     public function get_title() {
         return $this->title;
     }
 
+    /**
+     * Getter for course
+     *
+     * @return course
+     */
     public function get_course() {
         return $this->course;
     }
 
+    /**
+     * Getter for courseinfo
+     *
+     * @return \course_modinfo|null
+     * @throws \moodle_exception
+     */
     public function get_course_info() {
         return get_fast_modinfo($this->get_course());
     }
 
+    /**
+     * Getter for page
+     *
+     * @return moodle_page
+     */
     protected function get_page() {
         return $this->page;
     }
 
+    /**
+     * ToDo: Check if function is needed.
+     *
+     * @param $instance
+     * @return mixed
+     */
     public function get_icon_url_löschen($instance) {
         return $this->get_page()->theme->image_url('icon', $instance->modname)->out();
     }

@@ -14,48 +14,54 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die;
+/**
+ * Plugin strings are defined here.
+ *
+ * @package     local_feedbackchoicegenerator
+ * @category    string
+ * @copyright   Andreas Schenkel
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 /**
  * This function extends the navigation with the report items
  *
- * @package    local_feedbackchoicegenerator
  * @param navigation_node $navigation The navigation node to extend
  * @param stdClass $course The course to object for the generator
  * @param stdClass $context The context of the course
+ * @package    local_feedbackchoicegenerator
  */
 function local_feedbackchoicegenerator_extend_navigation_course($navigation, $course, $context) {
-    global $CFG;
+    global $CFG, $PAGE;
     $isactive = false;
     $isactive = $CFG->local_feedbackchoicegenerator_isactive;
     if ($isactive) {
-        $page = $GLOBALS['PAGE'];
-        $url = new moodle_url('/local/feedbackchoicegenerator/index.php', array('id' => $course->id));
+        $url = new moodle_url('/local/feedbackchoicegenerator/index.php', ['id' => $course->id]);
 
-        $feedbackchoicegeneratornode = $page->navigation->find($course->id, navigation_node::TYPE_COURSE);
+        $feedbackchoicegeneratornode = $PAGE->navigation->find($course->id, navigation_node::TYPE_COURSE);
 
         $collection = $feedbackchoicegeneratornode->children;
 
         foreach ($collection->getIterator() as $child) {
             $key = $child->key;
-            // position of node before this note
+            // Position of node before this note.
             if ($key === 'participants') {
                 break;
             }
         }
 
-            $node = $feedbackchoicegeneratornode->create(get_string('pluginname', 'local_feedbackchoicegenerator'),
-                $url, navigation_node::NODETYPE_LEAF, null, 'feedbackchoicegenerator',  new pix_icon('i/report', 'grades'));
-            $feedbackchoicegeneratornode->add_node($node,  $key);
-    
-            $navigation->add(
-                get_string('pluginname', 'local_feedbackchoicegenerator'),
-                $url,
-                navigation_node::TYPE_SETTING,
-                null,
-                null,
-                new pix_icon('i/report', '')
-            );
+        $node = $feedbackchoicegeneratornode->create(get_string('pluginname', 'local_feedbackchoicegenerator'),
+            $url, navigation_node::NODETYPE_LEAF, null, 'feedbackchoicegenerator', new pix_icon('i/report', 'grades'));
+        $feedbackchoicegeneratornode->add_node($node, $key);
+
+        $navigation->add(
+            get_string('pluginname', 'local_feedbackchoicegenerator'),
+            $url,
+            navigation_node::TYPE_SETTING,
+            null,
+            null,
+            new pix_icon('i/report', '')
+        );
     }
-    
+
 }

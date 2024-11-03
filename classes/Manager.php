@@ -15,19 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace local_feedbackchoicegenerator;
-defined('MOODLE_INTERNAL') || die;
+
 use moodle_database;
 use local_feedbackchoicegenerator\local\Database\Factory as DatabaseFactory;
 use local_feedbackchoicegenerator\Security;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
+ * Manager
+ *
  * @package    local_feedbackchoicegenerator
- * Class manager
+ * @copyright  2021 Andreas Schenkel
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class Manager
-{
+class Manager {
     /**
      * @var moodle_database
      */
@@ -42,6 +42,8 @@ class Manager
     }
 
     /**
+     * Databasefactory
+     *
      * @return DatabaseFactory
      */
     public function database(): DatabaseFactory {
@@ -49,6 +51,8 @@ class Manager
     }
 
     /**
+     * Security
+     *
      * @return Security
      */
     public function security(): Security {

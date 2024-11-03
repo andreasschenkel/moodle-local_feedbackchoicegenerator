@@ -15,18 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace local_feedbackchoicegenerator\local\Database;
-defined('MOODLE_INTERNAL') || die();
+
 use moodle_database;
 
 /**
+ * DataFiles
+ *
  * @package    local_feedbackchoicegenerator
- * This class provides high-level functionality for the module. Concepts like
- * enumerating files belonging to a specific component are mapped to the
- * relevant SQL queries, therefore encapsulating low-level database access inside
- * this class.
+ * @copyright  2021 Andreas Schenkel
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class DataFiles
-{
+class DataFiles {
     /**
      * @var moodle_database The database connection an instance of this class
      *                      operates on.
@@ -87,20 +86,34 @@ class DataFiles
     }
 
     /**
-     * Performs a query using the keys and values of the parameter array as part
-     * of the command's WHERE clause.
-     * @param array $params An array whose keys should be used as components of the
-     *                      WHERE clause for the SELECT statement.
-     * @return array An array containing the results of the performed query.
+     * ToDo: check if this is needed.
+     *
+     * @param array $params
+     * @return array
+     * @throws \dml_exception
      */
     protected function perform_query(array $params): array {
         return $this->get_database()->get_records_sql($this->prepare_statement($params), $params);
     }
 
+    /**
+     * Getter for course
+     *
+     * @param $courseid
+     * @return false|mixed|\stdClass
+     * @throws \dml_exception
+     */
     public function get_course($courseid) {
         return $this->get_database()->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
     }
 
+    /**
+     *  Getter for page
+     *
+     * @param $instance
+     * @return false|mixed|\stdClass
+     * @throws \dml_exception
+     */
     public function get_page($instance) {
         return $this->get_database()->get_record('page', ['id' => $instance->instance], '*');
     }

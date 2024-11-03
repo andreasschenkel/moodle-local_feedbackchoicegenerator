@@ -33,8 +33,7 @@ $string['isactive'] = 'Activate generator';
 $string['configisactive'] = 'When activated, the generator can be started in the navigation drawer of the course.';
 
 $string['isallowedonfrontpage'] = 'Allow generator on frontpage with coursid=1';
-$string['configisallowedonfrontpage'] = 'When activated, the generator can be used on the frontpage with courseid=1. 
-URL is: yourmoodleurl/local/feedbackchoicegenerator/index.php?id=1';
+$string['configisallowedonfrontpage'] = 'When activated, the generator can be used on the frontpage with courseid=1. URL is: yourmoodleurl/local/feedbackchoicegenerator/index.php?id=1';
 
 $string['maxoptionslength'] = 'maximum text length of each option';
 $string['configmaxoptionslength'] = 'Up to this length a user can enter text as an option.';
