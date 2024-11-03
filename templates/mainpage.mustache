@@ -1,5 +1,59 @@
 {{!
-    @template local_feedbackchoicegenerator/mainpage
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_feedbackchoicegenerator/mainpages
+
+    Example context (json):
+    {
+      "wwwroot": "http:\/\/localhost:8000",
+      "courseid": 5,
+      "backtocourselabel": "zur\u00fcck zum Kurs",
+      "title": "1.\/2. Wahl Feedback-Generator",
+      "header3": "1. Wahl und 2. Wahl",
+      "summary": "Ein Generator f\u00fcr die Aktivit\u00e4t Feedback, um eine 1. und 2. Wahl umzusetzen.",
+      "courseidlabel": "Kursid",
+      "sizelabel": "Anzahl der Optionen",
+      "maxlength": 40,
+      "optionslengthinfo": "max. Zeichenanzahl je Option:",
+      "description": "Den hier erzeugten xml-Code mit Hilfe des Download-Links herunterladen (rechte Maustaste \"Ziel speichern unter...\" nutzen). Alternativ den xml-Code in einer Textdatei kopieren und mit der Endung .xml speichern.",
+      "size": 2,
+      "filename": "",
+      "options": [
+        {
+          "optionnumber": 1,
+          "optionlabel": "Option 1",
+          "optionname": "option1",
+          "optionvalue": "Hund"
+        },
+        {
+          "optionnumber": 2,
+          "optionlabel": "Option 2",
+          "optionname": "option2",
+          "optionvalue": "Katze"
+        }
+      ],
+      "maxoptionslength": 30,
+      "textareacontent": "\n\n\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n>>>>Hund\n|Katze\n]]><\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n>>>>Katze\n]]><\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n>>>>Hund\n]]><\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n<\/ITEMS>\n<\/FEEDBACK>\n",
+      "buttonlabel": "XML erzeugen",
+      "downloadbuttonlabel": "XML-Download (rechte Maustaste \"Ziel speichern unter...\")",
+      "updatebuttonlabel": "aktualisieren",
+      "resetbuttonlabel": "Eingaben zur\u00fccksetzen",
+      "dataurl": "data:application\/xml;charset=UTF-8;utf8,\n\n\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n>>>>Hund\n|Katze\n]]><\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n>>>>Katze\n]]><\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n>>>>Hund\n]]><\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n\n<\/ITEMID>\n<\/ITEMTEXT>\n<\/ITEMLABEL>\n<\/PRESENTATION>\n<\/OPTIONS>\n<\/DEPENDITEM>\n<\/DEPENDVALUE>\n<\/ITEM>\n<\/ITEMS>\n<\/FEEDBACK>\n"
+    }
 }}
 
 <?php session_start(); ?>
@@ -12,9 +66,6 @@
         <div class="optionslengthinfo">
             {{optionslengthinfo}} {{maxoptionslength}}
         </div>
-
-
-
 
     <form action="index.php?id={{courseid}}" method="post">
         <input name='courseid' type='hidden' value='{{courseid}}' disabled>
@@ -50,7 +101,7 @@
         </div> 
 
         <textarea id="textarea_feedbackchoicegenerator" name="textarea_feedbackchoicegenerator" rows="20" cols="100" readonly >
-{{textareacontent}}
+            {{textareacontent}}
         </textarea>
 
 </div> 

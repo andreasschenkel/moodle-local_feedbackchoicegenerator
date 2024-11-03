@@ -128,8 +128,7 @@ class FeedbackChoiceGenerator {
 
         $wwwroot = $CFG->wwwroot;
 
-        echo $this->get_page()->get_output()->render_from_template(
-            'local_feedbackchoicegenerator/mainpage',
+        $datatorender =
             [
                 'wwwroot' => $wwwroot,
                 'courseid' => $this->courseid,
@@ -156,7 +155,12 @@ class FeedbackChoiceGenerator {
                 'updatebuttonlabel' => get_string('updatebuttonlabel', 'local_feedbackchoicegenerator'),
                 'resetbuttonlabel' => get_string('resetbuttonlabel', 'local_feedbackchoicegenerator'),
                 'dataurl' => $dataurl,
-            ]
+            ];
+        echo json_encode($datatorender);
+
+        echo $this->get_page()->get_output()->render_from_template(
+            'local_feedbackchoicegenerator/mainpage',
+            $datatorender
         );
 
         echo $this->get_page()->get_output()->footer();
