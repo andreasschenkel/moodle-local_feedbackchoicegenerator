@@ -24,8 +24,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->maturity = MATURITY_BETA;
-$plugin->version  = 2022020200;
+$plugin->version  = 2024110300;
+$plugin->requires = 2022112800;
+$plugin->supported = [
+    401,
+    405,
+];
 $plugin->component = 'local_feedbackchoicegenerator';
-$plugin->requires = 2017111300;
-$plugin->release = 'v2.0.5';
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = 'v405.2.0.6';

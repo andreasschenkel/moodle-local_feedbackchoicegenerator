@@ -60,6 +60,11 @@ By default only editing teacher can use this generator. If other roles should be
 
 ### D: Changelog ###
 
+[[v405.2.0.6]]
+
+- implement version for moodle 4.5
+
+
 [[v2.0.5]]
 
 - fixed: delete "ranked" from pluginname and refactored to previous name feedbackchoicegenerator
