@@ -31,10 +31,13 @@ use html_writer;
  */
 class Helper {
     /**
-     * generates the options seperated by |
+     * Generates the options seperated by |
+     *
+     * @param $options
+     * @param $selectedoption
      * @return string with all options without the $selectedoption
      */
-    public static function generate_options_list($options, $selectedoption) {
+    public static function generate_options_list($options, $selectedoption): string {
         $htmloutput = '';
         $counter = 0;
         foreach ($options as $option) {
@@ -53,7 +56,7 @@ class Helper {
      * generates nessesary lines at the beginning of the file
      * @return string
      */
-    public static function generate_document_header_openinglines() {
+    public static function generate_document_header_openinglines(): string {
         $output = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
         $output = $output . html_writer::start_tag('FEEDBACK',
                 ['VERSION' => '200701', 'COMMENT' => 'XML-Importfile for mod/feedback']) . "\n";
@@ -65,7 +68,7 @@ class Helper {
      * generates nessesary lines at the end of the file to close the opened tags
      * @return string
      */
-    public static function generate_document_last_lines() {
+    public static function generate_document_last_lines(): string {
         $output = "";
         $output = $output . html_writer::end_tag('ITEMS') . "\n";
         $output = $output . html_writer::end_tag('FEEDBACK') . "\n";
@@ -77,7 +80,7 @@ class Helper {
      * @param int $itemnumber The number of the actual xml-component to be generated
      * @return string
      */
-    public static function generate_document_header($itemnumber) {
+    public static function generate_document_header($itemnumber): string {
         $output = "";
         $output = $output . html_writer::start_tag('ITEM', ['TYPE' => 'info', 'REQUIRED' => '0']) . "\n";
         $output = $output . html_writer::tag('ITEMID', "<![CDATA[$itemnumber]]>") . "\n";
@@ -95,7 +98,7 @@ class Helper {
      * generates the pagebrakes to seperate the different options
      * @param int $itemnumber The number of the actual xml-component to be generated
      */
-    public static function generate_pagebreak($itemnumber) {
+    public static function generate_pagebreak($itemnumber): string {
         $output = "";
         $output = $output . html_writer::start_tag('ITEM', ['TYPE' => 'pagebreak', 'REQUIRED' => '0']) . "\n";
         $output = $output . html_writer::tag('ITEMID', "<![CDATA[$itemnumber]]>") . "\n";
@@ -120,7 +123,7 @@ class Helper {
     public static function generate_selection_overview($level,
                                                        $itemnumber,
                                                        $firstchoicereferencenumber,
-                                                       $alloptionstoadd, $option) {
+                                                       $alloptionstoadd, $option): string {
         $selectlabel = get_string('selectlabel', 'local_feedbackchoicegenerator');
         if ($level === 1) {
             $choicelabel = get_string('firstchoicelabel', 'local_feedbackchoicegenerator');
@@ -148,7 +151,7 @@ class Helper {
      * @param int $firstchoicereferencenumber Number for to reference to in the second second choice
      * @param string $option DEPENDVALUE
      */
-    public static function generate_label($itemnumber, $firstchoicereferencenumber, $option) {
+    public static function generate_label($itemnumber, $firstchoicereferencenumber, $option): string {
         $output = "";
         $output = $output . html_writer::start_tag('ITEM', ['TYPE' => 'label', 'REQUIRED' => '0']) . "\n";
         $output = $output . html_writer::tag('ITEMID', "<![CDATA[$itemnumber]]>") . "\n";

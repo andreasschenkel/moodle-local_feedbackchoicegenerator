@@ -103,7 +103,7 @@ class DataFiles {
      * @return false|mixed|\stdClass
      * @throws \dml_exception
      */
-    public function get_course($courseid) {
+    public function get_course($courseid): mixed {
         return $this->get_database()->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
     }
 
