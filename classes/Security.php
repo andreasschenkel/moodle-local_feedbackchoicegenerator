@@ -48,6 +48,10 @@ class Security {
     /**
      * Checks if user is allowed to use the generator.
      *
+     * @param $courseid
+     * @return void
+     * @throws \dml_exception
+     * @throws \required_capability_exception
      * @throws coding_exception
      * @throws moodle_exception
      * @throws require_login_exception
